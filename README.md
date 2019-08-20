@@ -1,2 +1,13 @@
 # eSense-Android-Library
-A light-weight android library to build mobile apps with eSense
+A light-weight Android library to build mobile apps with [eSense](esense.io).
+
+## Requirements
+Android 6.0 (API 23) or later
+
+## Documentation
+Find the library documentation at [this link](http://www.esense.io/share/eSense-Android-Library.pdf)
+
+## Credits
+Pervasive Systems team at Nokia Bell Labs Cambridge maintains this research space voluntarily as a community service. Please [get in touch](mailto:info@esense.io) with us to contribute to this effort in advancing the earable computing research.
+
+CREDITS : [Alessandro Montanari](https://www.cl.cam.ac.uk/~am2266/), [Chulhong Min](http://chulhongmin.com/), [Akhil Mathur](https://akhilmathurs.github.io/), [Fahim Kawsar](http://www.fahim-kawsar.net/)
