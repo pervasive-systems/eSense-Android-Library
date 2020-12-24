@@ -1,5 +1,5 @@
 # eSense Android Library
-Android Studio project containing a light-weight Android library to build mobile apps with [eSense](esense.io).
+Android Studio project containing a light-weight Android library to build mobile apps with [eSense](https://esense.io).
 
 ## Requirements
 Android 6.0 (API 23) or later.
