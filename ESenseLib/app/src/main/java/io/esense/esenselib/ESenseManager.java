@@ -13,6 +13,7 @@ import android.util.Log;
 
 import java.nio.charset.Charset;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
@@ -444,7 +445,7 @@ public class ESenseManager {
          * @return String of UUID of the characteristic
          */
         private String getKey(BluetoothGattCharacteristic characteristic){
-            return characteristic.getUuid().toString().toLowerCase();
+            return characteristic.getUuid().toString().toLowerCase(Locale.US);
         }
 
         @Override
