@@ -289,22 +289,22 @@ public class ESenseManager {
      * The event {@link ESenseSensorListener#onSensorChanged(ESenseEvent)} is fired every time a new sample is available from the connected device.
      * @param listener sensor listener
      * @param samplingRate sensor sampling rate in Hz (min: 1 - max: 100)
-     * @return {@link SamplingStatus#STARTED} if the sampling was started successfully,
-     *         {@link SamplingStatus#ERROR} if the parameter is incorrect,
-     *         {@link SamplingStatus#DEVICE_DISCONNECTED} if the device is disconnected
+     * @return {@link ESenseSamplingStatus#STARTED} if the sampling was started successfully,
+     *         {@link ESenseSamplingStatus#ERROR} if the parameter is incorrect,
+     *         {@link ESenseSamplingStatus#DEVICE_DISCONNECTED} if the device is disconnected
      */
-    public SamplingStatus registerSensorListener(ESenseSensorListener listener, int samplingRate) {
+    public ESenseSamplingStatus registerSensorListener(ESenseSensorListener listener, int samplingRate) {
         if (!isConnected()) {
             Log.e(TAG, "eSense device is not connected");
-            return SamplingStatus.DEVICE_DISCONNECTED;
+            return ESenseSamplingStatus.DEVICE_DISCONNECTED;
         }
         if (listener == null){
             Log.e(TAG, "In registerSensorListener(), listener is set to null");
-            return SamplingStatus.ERROR;
+            return ESenseSamplingStatus.ERROR;
         }
         if(samplingRate < 1 || 100 < samplingRate){
             Log.e(TAG, "In registerSensorListener(), samplingRate should be set between 1 and 100, but is set to " + samplingRate);
-            return SamplingStatus.ERROR;
+            return ESenseSamplingStatus.ERROR;
         }
         BluetoothGattCharacteristic c = mCharacteristicMap.get(CONFIG_CHARACTERISTIC);
         byte[] bytes = new byte[]{0x53, 0x00, 0x02, 0x01, (byte) samplingRate};
@@ -314,7 +314,7 @@ public class ESenseManager {
 
         mSensorListener = listener;
         enableNotification(SENSOR_CHARACTERISTIC,true);
-        return SamplingStatus.STARTED;
+        return ESenseSamplingStatus.STARTED;
     }
 
     /**
