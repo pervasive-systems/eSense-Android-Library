@@ -361,6 +361,7 @@ public class ESenseManager {
      *         <code>false</code> otherwise
      */
     public boolean isConnected() {
+        if (mDevice == null) return false;
         return (mBluetoothManager.getConnectionState(mDevice, BluetoothProfile.GATT) == BluetoothProfile.STATE_CONNECTED);
     }
 
